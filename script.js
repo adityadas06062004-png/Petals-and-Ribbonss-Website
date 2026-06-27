@@ -292,7 +292,7 @@
     renderFlowers(); renderWrapPicker(); renderOccasionPicker(); updateAll();
 
     function escapeForText(s){ return String(s).replace(/\n/g,'\n').replace(/%/g,'%25').replace(/</g,'').replace(/>/g,''); }
-    const WA_NUMBER = '918637505579';
+    const WA_NUMBER = '+918637505579';
     requestBtn.addEventListener('click', () => {
       const itemsArr = Object.entries(state).filter(([,c]) => c > 0).map(([id, count]) => {
         const f = flowers.find(x => x.id === id);
