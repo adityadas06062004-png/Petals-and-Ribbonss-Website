@@ -189,8 +189,62 @@
       return svg;
     }
 
-    // Current wrap (can be changed by wrap picker if you add one)
-    let currentWrap = { fill: '#F9DEE2', ribbon: '#D4909E' };
+    // Wrap colour options
+    const wrapOptions = [
+      { name: 'Blush',    fill: '#F9DEE2', ribbon: '#D4909E' },
+      { name: 'Ivory',    fill: '#FFF8F0', ribbon: '#C8A882' },
+      { name: 'Lavender', fill: '#EDE0FF', ribbon: '#9B72CF' },
+      { name: 'Mint',     fill: '#E0F7F0', ribbon: '#5BAF91' },
+      { name: 'Cream',    fill: '#FFF9E3', ribbon: '#C4A84F' },
+    ];
+    let currentWrap = wrapOptions[0];
+    let currentOccasion = '';
+
+    // Render wrap picker
+    function renderWrapPicker(){
+      const picker = document.getElementById('wrapPicker');
+      if(!picker) return;
+      picker.innerHTML = '';
+      wrapOptions.forEach((w, i) => {
+        const swatch = document.createElement('button');
+        swatch.title = w.name;
+        swatch.setAttribute('aria-label', w.name + ' wrap');
+        swatch.style.cssText = `width:28px;height:28px;border-radius:50%;border:2px solid ${i===0?'#888':'transparent'};background:${w.fill};cursor:pointer;margin:2px;transition:border .2s;`;
+        swatch.addEventListener('click', () => {
+          currentWrap = w;
+          picker.querySelectorAll('button').forEach(b => b.style.border = '2px solid transparent');
+          swatch.style.border = '2px solid #888';
+          document.getElementById('wrapLabel').textContent = w.name;
+          updateAll();
+        });
+        picker.appendChild(swatch);
+      });
+    }
+
+    // Render occasion picker
+    function renderOccasionPicker(){
+      const container = document.getElementById('occasionPicker');
+      if(!container) return;
+      const occasions = ['Birthday 🎂','Anniversary 💕','Just Because ✨','Graduation 🎓','Thank You 🙏'];
+      container.innerHTML = '';
+      occasions.forEach(occ => {
+        const btn = document.createElement('button');
+        btn.textContent = occ;
+        btn.style.cssText = 'margin:4px;padding:6px 12px;border-radius:20px;border:1.5px solid var(--accent);background:transparent;color:var(--text);cursor:pointer;font-size:13px;transition:all .2s;';
+        btn.addEventListener('click', () => {
+          currentOccasion = (currentOccasion === occ) ? '' : occ;
+          container.querySelectorAll('button').forEach(b => {
+            b.style.background = 'transparent';
+            b.style.color = 'var(--text)';
+          });
+          if(currentOccasion){
+            btn.style.background = 'var(--accent)';
+            btn.style.color = '#fff';
+          }
+        });
+        container.appendChild(btn);
+      });
+    }
 
     function updateAll(){
       // update qty displays
@@ -235,10 +289,10 @@
       if(totalStems() >= hardLimit){ hardWarning.style.display = 'block'; } else { hardWarning.style.display = 'none'; }
     }
 
-    renderFlowers(); updateAll();
+    renderFlowers(); renderWrapPicker(); renderOccasionPicker(); updateAll();
 
-    // Request via WhatsApp (sanitize inputs)
-    function escapeForText(s){ return String(s).replace(/\n/g,' ').replace(/%/g,'%25').replace(/</g,'').replace(/>/g,''); }
+    function escapeForText(s){ return String(s).replace(/\n/g,'\n').replace(/%/g,'%25').replace(/</g,'').replace(/>/g,''); }
+    const WA_NUMBER = '918637505579';
     requestBtn.addEventListener('click', () => {
       const itemsArr = Object.entries(state).filter(([,c]) => c > 0).map(([id, count]) => {
         const f = flowers.find(x => x.id === id);
@@ -247,9 +301,11 @@
       if(itemsArr.length === 0){ alert('Please add some flowers first.'); return; }
       const items = itemsArr.join('\n');
       const price = calcPrice().toFixed(2);
-      const preMsg = `Hello! I'd like to request a custom bouquet:\n${items}\n\nTotal: $${price}\nName:\nAddress:\nRequested delivery date:`;
+      const occasionLine = currentOccasion ? `\nOccasion: ${currentOccasion}` : '';
+      const wrapLine = `\nWrap colour: ${currentWrap.name}`;
+      const preMsg = `Hello! I'd like to request a custom bouquet:\n${items}${occasionLine}${wrapLine}\n\nEstimated Total: $${price}\n\nMy Name:\nAddress:\nRequested delivery date:`;
       const text = encodeURIComponent(escapeForText(preMsg));
-      const wa = `https://wa.me/?text=${text}`;
+      const wa = `https://wa.me/${WA_NUMBER}?text=${text}`;
       window.open(wa, '_blank', 'noopener');
     });
 
