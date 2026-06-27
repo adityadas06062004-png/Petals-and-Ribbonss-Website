@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="𝐏𝐞𝐭𝐚𝐥𝐬 & 𝐑𝐢𝐛𝐛𝐨𝐧𝐬𝐬" />
+  <meta name="theme-color" content="#F7D5D9" />
+  <title>𝐏𝐞𝐭𝐚𝐥𝐬 & 𝐑𝐢𝐛𝐛𝐨𝐧𝐬𝐬 — Handcrafted Gifts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Content Security Policy (meta for demos). Prefer setting CSP via server headers in production. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://wa.me https://api.whatsapp.com;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="brand">
+        <img src="Pearls and Petals.jpeg" alt="Pearls & Petals logo" class="logo-img" data-light-src="Pearls and Petals.jpeg" data-dark-src="Pearls and Ribbonss.jpeg">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-weight:700">𝐏𝐞𝐭𝐚𝐥𝐬 & 𝐑𝐢𝐛𝐛𝐨𝐧𝐬𝐬</div>
+          <div style="font-size:12px;color:var(--muted)">Handmade bouquets & gifts</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#shop">Shop</a>
+        <a href="#builder">Build</a>
+        <a href="#contact">Contact</a>
+        <div class="theme-toggle" id="themeToggle">
+          <button data-theme="light" title="Light">☀️</button>
+          <button data-theme="dark" title="Dark">🌙</button>
+          <button data-theme="system" title="System">🖥️</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h1 class="hero-title">𝐏𝐞𝐭𝐚𝐥𝐬 & 𝐑𝐢𝐛𝐛𝐨𝐧𝐬𝐬</h1>
+          <p class="hero-sub">Handcrafted with love, delivered with care</p>
+          <div class="hero-cta">
+            <a class="btn" href="#shop">Shop Now</a>
+            <a class="btn secondary" href="#builder">Build Your Bouquet</a>
+          </div>
+        </div>
+        <div>
+          <div class="card" style="padding:28px;display:flex;flex-direction:column;align-items:center;justify-content:center">
+            <div style="font-size:64px">💐</div>
+            <div style="margin-top:12px;font-weight:700">Featured: Spring Cottage Bouquet</div>
+            <div style="color:var(--muted);margin-top:8px">A cozy selection of seasonal blooms</div>
+            <div style="margin-top:12px"><button class="btn">Buy Now</button></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="about" class="container fade-in">
+      <h2 class="section-title">About</h2>
+      <p style="max-width:760px;color:var(--muted)">𝐏𝐞𝐭𝐚𝐥𝐬 & 𝐑𝐢𝐛𝐛𝐨𝐧𝐬𝐬 is a small handmade gifts studio creating delicate bouquets, keepsake keychains, and curated gift sets. Founded by a maker with a love of cottage florals and thoughtful details, each item is handcrafted, wrapped, and sent with care — perfect for celebrations, thank-yous, and cozy moments.</p>
+    </section>
+
+    <section id="shop" class="container fade-in">
+      <h2 class="section-title">Shop</h2>
+      <div class="grid cards">
+        <article class="card">
+          <img alt="Bouquets placeholder">
+          <h3>Bouquets</h3>
+          <p style="color:var(--muted)">Hand-tied seasonal bouquets, wrapped in paper and ribbon.</p>
+          <div style="margin-top:10px" class="price">From $35</div>
+        </article>
+        <article class="card">
+          <img alt="Keychains placeholder">
+          <h3>Keychains</h3>
+          <p style="color:var(--muted)">Tiny preserved florals and charms for everyday keepsakes.</p>
+          <div style="margin-top:10px" class="price">From $12</div>
+        </article>
+        <article class="card">
+          <img alt="Gift sets placeholder">
+          <h3>Gift Sets</h3>
+          <p style="color:var(--muted)">Curated sets for birthdays, anniversaries, and more.</p>
+          <div style="margin-top:10px" class="price">From $45</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="builder" class="container fade-in">
+      <h2 class="section-title">Custom Bouquet Builder</h2>
+      <div class="builder">
+        <div>
+          <p style="color:var(--muted)">Select flowers to create a custom bouquet. Adjust quantities with + / −. See live preview and price below.</p>
+          <div id="flowerList" class="flower-list" aria-live="polite"></div>
+        </div>
+
+        <aside>
+          <div class="summary">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <strong>Your Bouquet</strong>
+              <div id="stemCount">0 stems</div>
+            </div>
+            <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px" id="previewChips"></div>
+            <div class="visual-bouquet" id="visualBouquet" aria-hidden="false" title="Bouquet preview"></div>
+            <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+              <div style="color:var(--muted)">Estimated price</div>
+              <div id="totalPrice" style="font-weight:800">$0</div>
+            </div>
+            <div id="softWarning" style="margin-top:12px;display:none" class="warning">Your bouquet is getting full! Adding more may increase delivery time by 1–2 days.</div>
+            <div id="hardWarning" style="margin-top:12px;display:none" class="danger">Maximum bouquet size reached. For larger orders, please contact us directly.</div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <button class="btn" id="requestBtn">Request This Bouquet</button>
+              <a class="btn secondary" href="#contact">Contact</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="testimonials" class="container fade-in">
+      <h2 class="section-title">Testimonials</h2>
+      <div class="grid test-grid">
+        <div class="testimonial">“Absolutely gorgeous bouquet — arrived perfectly wrapped.” — Emma</div>
+        <div class="testimonial">“Lovely customer service and thoughtful touches.” — Maya</div>
+        <div class="testimonial">“My sister loved the keychain gift!” — Priya</div>
+      </div>
+    </section>
+
+    <section id="contact" class="container fade-in">
+      <h2 class="section-title">Contact & Order</h2>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" rows="4" placeholder="Message / order details"></textarea>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn" type="submit">Send Message</button>
+          <a class="btn secondary" href="https://wa.me/" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a class="btn secondary" href="https://www.instagram.com/petals.and.ribbonss?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </form>
+    </section>
+
+    <footer class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <img src="Pearls and Petals.jpeg" alt="Pearls & Petals logo" class="logo-img" data-light-src="Pearls and Petals.jpeg" data-dark-src="Pearls and Ribbonss.jpeg">
+          <div>
+            <div style="font-weight:700">𝐏𝐞𝐭𝐚𝐥𝐬 & 𝐑𝐢𝐛𝐛𝐨𝐧𝐬𝐬</div>
+            <div style="color:var(--muted);font-size:13px">© <span id="year"></span> 𝐏𝐞𝐭𝐚𝐥𝐬 & 𝐑𝐢𝐛𝐛𝐨𝐧𝐬𝐬</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center">
+          <a href="#shop">Shop</a>
+          <a href="#builder">Build</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+
+  
+</body>
+</html>
