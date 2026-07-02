@@ -33,14 +33,6 @@
         <a href="#shop">Shop</a>
         <a href="#builder">Build</a>
         <a href="#contact">Contact</a>
-        <select id="currencySelect" class="currency-select" aria-label="Select currency">
-          <option value="INR">₹ INR</option>
-          <option value="USD">$ USD</option>
-          <option value="EUR">€ EUR</option>
-          <option value="GBP">£ GBP</option>
-          <option value="AED">AED</option>
-          <option value="JPY">¥ JPY</option>
-        </select>
         <div class="theme-toggle" id="themeToggle">
           <button data-theme="light" title="Light">☀️</button>
           <button data-theme="dark" title="Dark">🌙</button>
@@ -84,19 +76,19 @@
           <img alt="Bouquets placeholder">
           <h3>Bouquets</h3>
           <p style="color:var(--muted)">Hand-tied seasonal bouquets, wrapped in paper and ribbon.</p>
-          <div style="margin-top:10px" class="price" data-shop-price="299">From ₹299</div>
+          <div style="margin-top:10px" class="price">From $35</div>
         </article>
         <article class="card">
           <img alt="Keychains placeholder">
           <h3>Keychains</h3>
           <p style="color:var(--muted)">Tiny preserved florals and charms for everyday keepsakes.</p>
-          <div style="margin-top:10px" class="price" data-shop-price="99">From ₹99</div>
+          <div style="margin-top:10px" class="price">From $12</div>
         </article>
         <article class="card">
           <img alt="Gift sets placeholder">
           <h3>Gift Sets</h3>
           <p style="color:var(--muted)">Curated sets for birthdays, anniversaries, and more.</p>
-          <div style="margin-top:10px" class="price" data-shop-price="399">From ₹399</div>
+          <div style="margin-top:10px" class="price">From $45</div>
         </article>
       </div>
     </section>
@@ -105,12 +97,23 @@
       <h2 class="section-title">Custom Bouquet Builder</h2>
       <div class="builder">
         <div>
-          <p style="color:var(--muted)">Pick flowers, wrap, ribbon and add-ons — see a live bouquet preview with itemised pricing.</p>
+          <p style="color:var(--muted)">Select flowers to create a custom bouquet. Adjust quantities with + / −. See live preview and price below.</p>
           <div id="flowerList" class="flower-list" aria-live="polite"></div>
-          <div id="occasionWrap"   class="builder-extras"></div>
-          <div id="wrapPickerWrap" class="builder-extras"></div>
-          <div id="ribbonPickerWrap" class="builder-extras"></div>
-          <div id="addonWrap"     class="builder-extras"></div>
+
+          <!-- Wrap colour picker -->
+          <div style="margin:16px 0 8px">
+            <div style="font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--muted);margin-bottom:8px">PAPER WRAP</div>
+            <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+              <div id="wrapPicker" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+              <span id="wrapLabel" style="font-size:13px;color:var(--muted);margin-left:4px">Blush</span>
+            </div>
+          </div>
+
+          <!-- Occasion picker -->
+          <div style="margin:12px 0 4px">
+            <div style="font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--muted);margin-bottom:8px">OCCASION</div>
+            <div id="occasionPicker" style="display:flex;flex-wrap:wrap;gap:6px"></div>
+          </div>
         </div>
 
         <aside>
@@ -122,15 +125,13 @@
             <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px" id="previewChips"></div>
             <div class="visual-bouquet" id="visualBouquet" aria-hidden="false" title="Bouquet preview"></div>
             <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
-              <div style="color:var(--muted)">Est. total (incl. delivery)</div>
-              <div id="totalPrice" style="font-weight:800">₹0</div>
+              <div style="color:var(--muted)">Estimated price</div>
+              <div id="totalPrice" style="font-weight:800">$0</div>
             </div>
             <div id="softWarning" style="margin-top:12px;display:none" class="warning">Your bouquet is getting full! Adding more may increase delivery time by 1–2 days.</div>
             <div id="hardWarning" style="margin-top:12px;display:none" class="danger">Maximum bouquet size reached. For larger orders, please contact us directly.</div>
-            <div id="deliveryBox"></div>
-            <div id="priceBreakdown"></div>
             <div style="margin-top:12px;display:flex;gap:8px">
-              <button class="btn" id="requestBtn">📲 Order on WhatsApp</button>
+              <button class="btn" id="requestBtn">Request This Bouquet</button>
               <a class="btn secondary" href="#contact">Contact</a>
             </div>
           </div>
@@ -149,12 +150,16 @@
 
     <section id="contact" class="container fade-in">
       <h2 class="section-title">Contact & Order</h2>
-      <form id="contactForm">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" rows="4" placeholder="Message / order details"></textarea>
-        <div style="display:flex;gap:8px;align-items:center">
-          <button class="btn" type="submit">Send Message</button>
+      <!-- Formspree: replace YOUR_FORM_ID with your id from formspree.io -->
+      <form id="contactForm" action="https://formspree.io/f/mjgqpbyr" method="POST">
+        <input type="hidden" name="_subject" value="New enquiry — Petals & Ribbonss 🌸">
+        <input type="hidden" name="_replyto" id="replyToField">
+        <input type="text"  name="name"    placeholder="Your name"   required>
+        <input type="email" name="email"   placeholder="Email (so we can reply)" required>
+        <input type="tel"   name="phone"   placeholder="WhatsApp number (optional)" style="margin-top:0">
+        <textarea name="message" rows="4"  placeholder="Message / order details"></textarea>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <button class="btn" type="submit" id="submitBtn">📧 Send Message</button>
           <a class="btn secondary" href="https://wa.me/918637505579" target="_blank" rel="noopener noreferrer">WhatsApp</a>
           <a class="btn secondary" href="https://www.instagram.com/petals.and.ribbonss?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
