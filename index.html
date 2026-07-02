@@ -5,25 +5,24 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="𝐏𝐞𝐭𝐚𝐥𝐬 & 𝐑𝐢𝐛𝐛𝐨𝐧𝐬𝐬" />
+  <meta name="apple-mobile-web-app-title" content="Petals & Ribbonss" />
   <meta name="theme-color" content="#F7D5D9" />
   <title>𝐏𝐞𝐭𝐚𝐥𝐬 & 𝐑𝐢𝐛𝐛𝐨𝐧𝐬𝐬 — Handcrafted Gifts</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- Content Security Policy (meta for demos). Prefer setting CSP via server headers in production. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://wa.me https://api.whatsapp.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://wa.me https://api.whatsapp.com https://formspree.io;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  
   <link rel="stylesheet" href="style.css">
-  
 </head>
 <body>
 
   <nav>
     <div class="container">
       <div class="brand">
-        <img src="Pearls and Petals.jpeg" alt="Pearls & Petals logo" class="logo-img" data-light-src="Pearls and Petals.jpeg" data-dark-src="Pearls and Ribbonss.jpeg">
+        <img src="Pearls and Petals.jpeg" alt="Petals & Ribbonss logo" class="logo-img"
+             data-light-src="Pearls and Petals.jpeg"
+             data-dark-src="Pearls and Ribbonss.jpeg">
         <div>
           <div style="font-family:'Playfair Display',serif;font-weight:700">𝐏𝐞𝐭𝐚𝐥𝐬 & 𝐑𝐢𝐛𝐛𝐨𝐧𝐬𝐬</div>
           <div style="font-size:12px;color:var(--muted)">Handmade bouquets & gifts</div>
@@ -33,9 +32,17 @@
         <a href="#shop">Shop</a>
         <a href="#builder">Build</a>
         <a href="#contact">Contact</a>
+        <select id="currencySelect" class="currency-select" aria-label="Select currency">
+          <option value="INR">₹ INR</option>
+          <option value="USD">$ USD</option>
+          <option value="EUR">€ EUR</option>
+          <option value="GBP">£ GBP</option>
+          <option value="AED">AED</option>
+          <option value="JPY">¥ JPY</option>
+        </select>
         <div class="theme-toggle" id="themeToggle">
-          <button data-theme="light" title="Light">☀️</button>
-          <button data-theme="dark" title="Dark">🌙</button>
+          <button data-theme="light"  title="Light">☀️</button>
+          <button data-theme="dark"   title="Dark">🌙</button>
           <button data-theme="system" title="System">🖥️</button>
         </div>
       </div>
@@ -43,6 +50,8 @@
   </nav>
 
   <main>
+
+    <!-- HERO -->
     <header class="hero">
       <div class="container hero-inner">
         <div>
@@ -58,105 +67,129 @@
             <div style="font-size:64px">💐</div>
             <div style="margin-top:12px;font-weight:700">Featured: Spring Cottage Bouquet</div>
             <div style="color:var(--muted);margin-top:8px">A cozy selection of seasonal blooms</div>
-            <div style="margin-top:12px"><button class="btn">Buy Now</button></div>
+            <div style="margin-top:12px"><a class="btn" href="#builder">Build Now</a></div>
           </div>
         </div>
       </div>
     </header>
 
+    <!-- ABOUT -->
     <section id="about" class="container fade-in">
       <h2 class="section-title">About</h2>
-      <p style="max-width:760px;color:var(--muted)">𝐏𝐞𝐭𝐚𝐥𝐬 & 𝐑𝐢𝐛𝐛𝐨𝐧𝐬𝐬 is a small handmade gifts studio creating delicate bouquets, keepsake keychains, and curated gift sets. Founded by a maker with a love of cottage florals and thoughtful details, each item is handcrafted, wrapped, and sent with care — perfect for celebrations, thank-yous, and cozy moments.</p>
+      <p style="max-width:760px;color:var(--muted)">𝐏𝐞𝐭𝐚𝐥𝐬 & 𝐑𝐢𝐛𝐛𝐨𝐧𝐬𝐬 is a small handmade gifts studio creating delicate bouquets, keepsake keychains, and curated gift sets. Founded with a love of cottage florals and thoughtful details, each item is handcrafted, wrapped, and sent with care — perfect for celebrations, thank-yous, and cozy moments.</p>
     </section>
 
+    <!-- SHOP -->
     <section id="shop" class="container fade-in">
       <h2 class="section-title">Shop</h2>
       <div class="grid cards">
         <article class="card">
-          <img alt="Bouquets placeholder">
+          <img alt="Bouquets">
           <h3>Bouquets</h3>
           <p style="color:var(--muted)">Hand-tied seasonal bouquets, wrapped in paper and ribbon.</p>
-          <div style="margin-top:10px" class="price">From $35</div>
+          <div style="margin-top:10px" class="price" data-shop-price="299">From ₹299</div>
         </article>
         <article class="card">
-          <img alt="Keychains placeholder">
+          <img alt="Keychains">
           <h3>Keychains</h3>
           <p style="color:var(--muted)">Tiny preserved florals and charms for everyday keepsakes.</p>
-          <div style="margin-top:10px" class="price">From $12</div>
+          <div style="margin-top:10px" class="price" data-shop-price="99">From ₹99</div>
         </article>
         <article class="card">
-          <img alt="Gift sets placeholder">
+          <img alt="Gift Sets">
           <h3>Gift Sets</h3>
           <p style="color:var(--muted)">Curated sets for birthdays, anniversaries, and more.</p>
-          <div style="margin-top:10px" class="price">From $45</div>
+          <div style="margin-top:10px" class="price" data-shop-price="399">From ₹399</div>
         </article>
       </div>
     </section>
 
+    <!-- BOUQUET BUILDER -->
     <section id="builder" class="container fade-in">
       <h2 class="section-title">Custom Bouquet Builder</h2>
       <div class="builder">
+
+        <!-- LEFT: controls -->
         <div>
-          <p style="color:var(--muted)">Select flowers to create a custom bouquet. Adjust quantities with + / −. See live preview and price below.</p>
+          <p style="color:var(--muted)">Pick flowers, wrap, ribbon and add-ons — see a live bouquet preview with itemised pricing.</p>
+
+          <!-- Flower list -->
           <div id="flowerList" class="flower-list" aria-live="polite"></div>
 
-          <!-- Wrap colour picker -->
-          <div style="margin:16px 0 8px">
-            <div style="font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--muted);margin-bottom:8px">PAPER WRAP</div>
-            <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
-              <div id="wrapPicker" style="display:flex;gap:6px;flex-wrap:wrap"></div>
-              <span id="wrapLabel" style="font-size:13px;color:var(--muted);margin-left:4px">Blush</span>
-            </div>
-          </div>
+          <!-- Occasion presets -->
+          <div id="occasionWrap" class="builder-extras"></div>
 
-          <!-- Occasion picker -->
-          <div style="margin:12px 0 4px">
-            <div style="font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--muted);margin-bottom:8px">OCCASION</div>
-            <div id="occasionPicker" style="display:flex;flex-wrap:wrap;gap:6px"></div>
-          </div>
+          <!-- Wrap picker -->
+          <div id="wrapPickerWrap" class="builder-extras"></div>
+
+          <!-- Ribbon picker -->
+          <div id="ribbonPickerWrap" class="builder-extras"></div>
+
+          <!-- Add-ons -->
+          <div id="addonWrap" class="builder-extras"></div>
         </div>
 
+        <!-- RIGHT: preview + summary -->
         <aside>
           <div class="summary">
             <div style="display:flex;justify-content:space-between;align-items:center">
               <strong>Your Bouquet</strong>
               <div id="stemCount">0 stems</div>
             </div>
+
+            <!-- Chips -->
             <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px" id="previewChips"></div>
-            <div class="visual-bouquet" id="visualBouquet" aria-hidden="false" title="Bouquet preview"></div>
+
+            <!-- SVG bouquet preview -->
+            <div class="visual-bouquet" id="visualBouquet" aria-label="Bouquet preview"></div>
+
+            <!-- Total -->
             <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
-              <div style="color:var(--muted)">Estimated price</div>
-              <div id="totalPrice" style="font-weight:800">$0</div>
+              <div style="color:var(--muted)">Est. total (incl. delivery)</div>
+              <div id="totalPrice" style="font-weight:800">₹0</div>
             </div>
+
+            <!-- Warnings -->
             <div id="softWarning" style="margin-top:12px;display:none" class="warning">Your bouquet is getting full! Adding more may increase delivery time by 1–2 days.</div>
             <div id="hardWarning" style="margin-top:12px;display:none" class="danger">Maximum bouquet size reached. For larger orders, please contact us directly.</div>
+
+            <!-- Delivery estimate -->
+            <div id="deliveryBox"></div>
+
+            <!-- Price breakdown -->
+            <div id="priceBreakdown"></div>
+
+            <!-- Actions -->
             <div style="margin-top:12px;display:flex;gap:8px">
-              <button class="btn" id="requestBtn">Request This Bouquet</button>
+              <button class="btn" id="requestBtn">📲 Order on WhatsApp</button>
               <a class="btn secondary" href="#contact">Contact</a>
             </div>
           </div>
         </aside>
+
       </div>
     </section>
 
+    <!-- TESTIMONIALS -->
     <section id="testimonials" class="container fade-in">
       <h2 class="section-title">Testimonials</h2>
       <div class="grid test-grid">
-        <div class="testimonial">“Absolutely gorgeous bouquet — arrived perfectly wrapped.” — Emma</div>
-        <div class="testimonial">“Lovely customer service and thoughtful touches.” — Maya</div>
-        <div class="testimonial">“My sister loved the keychain gift!” — Priya</div>
+        <div class="testimonial">"Absolutely gorgeous bouquet — arrived perfectly wrapped." — Emma</div>
+        <div class="testimonial">"Lovely customer service and thoughtful touches." — Maya</div>
+        <div class="testimonial">"My sister loved the keychain gift!" — Priya</div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="container fade-in">
       <h2 class="section-title">Contact & Order</h2>
-      <!-- Formspree: formspree.io -->
+      <!-- Formspree: replace mjgqpbyr with your form ID if it changes -->
       <form id="contactForm" action="https://formspree.io/f/mjgqpbyr" method="POST">
         <input type="hidden" name="_subject" value="New enquiry — Petals & Ribbonss 🌸">
         <input type="hidden" name="_replyto" id="replyToField">
-        <input type="text"  name="name"    placeholder="Your name"   required>
-        <input type="email" name="email"   placeholder="Email (so we can reply)" required>
-        <input type="tel"   name="phone"   placeholder="WhatsApp number (optional)" style="margin-top:0">
+        <input type="text"  name="name"    placeholder="Your name"                    required>
+        <input type="email" name="email"   placeholder="Email (so we can reply)"      required>
+        <input type="tel"   name="phone"   placeholder="WhatsApp number (optional)">
         <textarea name="message" rows="4"  placeholder="Message / order details"></textarea>
         <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
           <button class="btn" type="submit" id="submitBtn">📧 Send Message</button>
@@ -166,10 +199,13 @@
       </form>
     </section>
 
+    <!-- FOOTER -->
     <footer class="container">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
         <div style="display:flex;align-items:center;gap:12px">
-          <img src="Pearls and Petals.jpeg" alt="Pearls & Petals logo" class="logo-img" data-light-src="Pearls and Petals.jpeg" data-dark-src="Pearls and Ribbonss.jpeg">
+          <img src="Pearls and Petals.jpeg" alt="Petals & Ribbonss logo" class="logo-img"
+               data-light-src="Pearls and Petals.jpeg"
+               data-dark-src="Pearls and Ribbonss.jpeg">
           <div>
             <div style="font-weight:700">𝐏𝐞𝐭𝐚𝐥𝐬 & 𝐑𝐢𝐛𝐛𝐨𝐧𝐬𝐬</div>
             <div style="color:var(--muted);font-size:13px">© <span id="year"></span> 𝐏𝐞𝐭𝐚𝐥𝐬 & 𝐑𝐢𝐛𝐛𝐨𝐧𝐬𝐬</div>
@@ -186,7 +222,5 @@
   </main>
 
   <script src="script.js"></script>
-
-  
 </body>
 </html>
