@@ -170,3 +170,63 @@
     }
     /* Suppress old .stem rule (SVG replaces it) */
     .visual-bouquet .stem { display: none; }
+
+    /* =============================================
+       PREMIUM BUILDER v3 — additional styles
+       ============================================= */
+
+    /* Currency selector in nav */
+    .currency-select{background:transparent;border:1px solid rgba(0,0,0,.08);border-radius:8px;padding:5px 8px;font-family:inherit;font-size:13px;font-weight:600;color:var(--text);cursor:pointer;min-height:36px;outline:none}
+    [data-theme='dark'] .currency-select{border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.04)}
+    .currency-select option{background:var(--bg);color:var(--text)}
+
+    /* Builder extra sections */
+    .builder-extras{margin-top:18px}
+    .option-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:8px}
+
+    /* Occasion tags */
+    .occ-tags{display:flex;flex-wrap:wrap;gap:6px}
+    .occ-tag{padding:6px 13px;border-radius:999px;border:1px solid rgba(0,0,0,.07);background:var(--card);color:var(--text);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+    .occ-tag:hover{border-color:var(--blush);background:var(--cream)}
+    .occ-tag.active{background:var(--blush);border-color:var(--blush)}
+
+    /* Wrap + Ribbon swatches */
+    .swatch-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .swatch-btn{width:28px;height:28px;border-radius:50%;cursor:pointer;transition:transform .15s,box-shadow .15s;outline:none;display:flex;align-items:center;justify-content:center}
+    .swatch-btn.sel{transform:scale(1.22)}
+    .swatch-label{font-size:12px;color:var(--muted);margin-left:4px}
+
+    /* Add-ons */
+    .addon-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .addon-item{display:flex;align-items:center;gap:8px;padding:9px 11px;border-radius:10px;border:1.5px solid rgba(0,0,0,.06);background:var(--card);cursor:pointer;transition:all .15s;font-family:inherit}
+    .addon-item:hover{border-color:var(--blush)}
+    .addon-item.selected{border-color:var(--blush);background:linear-gradient(135deg,var(--blush),var(--lavender))}
+    .addon-item input[type="checkbox"]{display:none}
+    .addon-emoji{font-size:17px;line-height:1}
+    .addon-name{flex:1;font-size:11px;font-weight:700}
+    .addon-price{font-size:11px;color:var(--muted);font-weight:700;white-space:nowrap}
+
+    /* Price breakdown */
+    .breakdown-card{margin-top:12px;padding:12px 14px;background:var(--card);border-radius:10px;border:1px solid rgba(0,0,0,.04);font-size:13px}
+    .breakdown-title{font-family:'Playfair Display',serif;font-weight:700;font-size:14px;margin-bottom:8px}
+    .bd-section{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:8px 0 4px}
+    .bd-row{display:flex;justify-content:space-between;padding:2px 0;color:var(--muted);font-size:12px}
+    .bd-total{display:flex;justify-content:space-between;padding:8px 0 0;margin-top:6px;border-top:1px solid rgba(0,0,0,.07);font-weight:800;font-size:15px;color:var(--text)}
+
+    /* Delivery box */
+    .delivery-box{margin-top:10px;padding:10px 12px;background:linear-gradient(135deg,var(--mint),var(--lavender));border-radius:8px;font-size:12px;color:var(--text);line-height:1.4}
+
+    /* Active flower row highlight */
+    .flower-row{border:1.5px solid transparent !important;transition:border-color .18s,box-shadow .18s}
+    .flower-row.active{border-color:#E0909E !important;box-shadow:0 2px 10px rgba(224,144,158,.15) !important}
+
+    /* Disabled btn */
+    .btn:disabled{opacity:.3 !important;cursor:not-allowed !important;transform:none !important;box-shadow:none !important}
+
+    /* SVG bouquet override */
+    .visual-bouquet{margin-top:12px;min-height:220px;border-radius:12px;padding:16px 8px 8px;background:linear-gradient(160deg,rgba(253,240,243,.6),rgba(248,240,255,.6));display:flex;align-items:center;justify-content:center}
+    [data-theme='dark'] .visual-bouquet{background:linear-gradient(160deg,rgba(60,20,30,.35),rgba(30,20,50,.35))}
+    .visual-bouquet svg{overflow:visible}
+    .visual-bouquet .stem{display:none}
+
+    @media(max-width:380px){.addon-grid{grid-template-columns:1fr}}
