@@ -1,0 +1,23 @@
+{
+  "name": "Petals & Ribbonss",
+  "short_name": "Petals & Ribbonss",
+  "description": "Handcrafted bouquets & gifts — custom bouquet builder",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF9F2",
+  "theme_color": "#F7D5D9",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "Pearls and Petals.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "Pearls and Petals.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "categories": ["shopping", "lifestyle"]
+}
