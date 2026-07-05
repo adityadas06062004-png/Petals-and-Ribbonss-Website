@@ -22,7 +22,8 @@ function detectCurrency() {
   return 'INR';
 }
 
-let activeCurrency = localStorage.getItem('pp-currency') || detectCurrency();
+let activeCurrency = "INR";
+localStorage.setItem("pp-currency", "INR");
 
 function fmt(inr) {
   const c = CURRENCIES[activeCurrency];
@@ -399,9 +400,12 @@ function updateAll() {
 
 // ── Currency selector ──────────────────────────────────────
 function initCurrency() {
-  const sel=document.getElementById('currencySelect');
-  if(!sel) return;
-  sel.value=activeCurrency;
+  const sel = document.getElementById('currencySelect');
+  if (!sel) return;
+
+  activeCurrency = "INR";
+  sel.value = "INR";
+  localStorage.setItem("pp-currency", "INR");
   sel.addEventListener('change',()=>{
     activeCurrency=sel.value;
     localStorage.setItem('pp-currency',activeCurrency);
