@@ -43,7 +43,7 @@ form-action 'self' https://wa.me;
 
 Notes:
 - Keep `'unsafe-inline'` out where possible (it weakens CSP). If needed for quick demos, keep it but plan to replace inline scripts/styles with external files and use nonces or hashes.
-- `frame-ancestors 'none'` helps prevent clickjacking.
+- `frame-ancestors 'none'` helps prevent clickjacking. 
 
 ---
 
