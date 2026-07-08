@@ -97,7 +97,7 @@ server {
 
 ---
 
-## Let's Encrypt (Certbot) quick commands
+## Let's Encrypt (Certbot) quick commands 
 ```
 # Install certbot and nginx plugin (depends on distro)
 # Ubuntu/Debian example:
